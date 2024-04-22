@@ -19,13 +19,13 @@
 
 Install all dependencies:
 
-```sh
+```
 npm install
 ```
 
 Start the Expo Go development server:
 
-```sh
+```
 npx expo start
 ```
 
@@ -33,19 +33,19 @@ npx expo start
 
 Change to the server directory, then install all dependencies:
 
-```sh
+```
 cd server
 npm install
 ```
 
 Start the local server:
 
-```sh
+```
 npm run dev
 ```
 
 Manage the database:
 
-```sh
+```
 npx prisma studio
 ```
