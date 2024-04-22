@@ -2,7 +2,7 @@
 
 # MyCredential
 
-> Mobile application built with React Native Expo Go and utilizes Prisma for efficient database management.
+Mobile application built with React Native Expo Go and utilizes Prisma for efficient database management.
 
 ## Stack
 
