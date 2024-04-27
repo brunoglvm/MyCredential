@@ -4,7 +4,7 @@
 
 Mobile application built with React Native Expo Go and utilizes Prisma for efficient database management.
 
-## Stack
+## Techs
 
 - React Native (Expo)
 - TypeScript
