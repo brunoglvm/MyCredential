@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { View, Image, StatusBar, Alert } from "react-native";
+import {
+  View,
+  Image,
+  StatusBar,
+  TouchableWithoutFeedback,
+  Keyboard,
+  Alert,
+} from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Link, Redirect } from "expo-router";
 
@@ -16,7 +23,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
 
   const badgeStore = useBadgeStore();
-  console.log("Dados =>", badgeStore.data);
+  console.log("data =>", badgeStore.data);
 
   async function handleAccessCredential() {
     try {
@@ -41,38 +48,40 @@ export default function Home() {
   }
 
   return (
-    <View className="flex-1 bg-green-500 items-center justify-center p-8">
-      <StatusBar barStyle="light-content" />
-      <Image
-        source={require("@/assets/logo.png")}
-        className="h-16"
-        resizeMode="contain"
-      />
-      <View className="w-full mt-12 gap-3">
-        <Input>
-          <MaterialCommunityIcons
-            name="ticket-confirmation-outline"
-            color={colors.green[200]}
-            size={20}
-          />
-          <Input.Field
-            placeholder="Código de ingresso"
-            onChangeText={setCode}
-          />
-        </Input>
-        <Button
-          title="Acessar credencial"
-          onPress={handleAccessCredential}
-          isLoading={isLoading}
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View className="flex-1 bg-black items-center justify-center p-8">
+        <StatusBar barStyle="light-content" />
+        <Image
+          source={require("@/assets/images/logo.png")}
+          className="h-16"
+          resizeMode="contain"
         />
+        <View className="w-full mt-12 gap-3">
+          <Input>
+            <MaterialCommunityIcons
+              name="ticket-confirmation-outline"
+              color={colors.green[200]}
+              size={20}
+            />
+            <Input.Field
+              placeholder="Código de ingresso"
+              onChangeText={setCode}
+            />
+          </Input>
+          <Button
+            title="Acessar credencial"
+            onPress={handleAccessCredential}
+            isLoading={isLoading}
+          />
 
-        <Link
-          href="/register"
-          className="text-zinc-100 text-base text-center font-bold mt-8"
-        >
-          Ainda não possui ingresso?
-        </Link>
+          <Link
+            href="/register"
+            className="text-zinc-100 text-base text-center font-bold mt-8"
+          >
+            Ainda não possui ingresso?
+          </Link>
+        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 }
