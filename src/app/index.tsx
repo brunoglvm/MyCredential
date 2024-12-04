@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   View,
   Image,
-  StatusBar,
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
@@ -49,8 +48,7 @@ export default function Home() {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View className="flex-1 bg-black items-center justify-center p-8">
-        <StatusBar barStyle="light-content" />
+      <View className="flex-1 bg-green-400 items-center justify-center p-8">
         <Image
           source={require("@/assets/images/logo.png")}
           className="h-16"

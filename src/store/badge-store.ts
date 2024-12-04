@@ -31,7 +31,7 @@ export const useBadgeStore = create(
         })),
     }),
     {
-      name: "nlw-unite:badge",
+      name: "my-credential:badge",
       storage: createJSONStorage(() => AsyncStorage),
     }
   )

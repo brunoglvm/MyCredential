@@ -61,7 +61,6 @@ export function Credential({ data, onChangeAvatar, onExpandQRCode }: Props) {
         rotateX: "0deg",
       }}
       transition={{
-        type: "spring",
         damping: 20,
         rotateZ: {
           damping: 15,
@@ -71,7 +70,7 @@ export function Credential({ data, onChangeAvatar, onExpandQRCode }: Props) {
     >
       <Image
         source={require("@/assets/ticket/band.png")}
-        className="w-24 h-52 z-10"
+        className="w-24 h-48 z-10"
       />
 
       <View className="bg-black/20 self-stretch items-center pb-6 border border-white/10 mx-3 rounded-2xl -mt-5">
@@ -121,9 +120,7 @@ export function Credential({ data, onChangeAvatar, onExpandQRCode }: Props) {
           style={qrCodeStyle.qrCode}
           onPress={onExpandQRCode}
         >
-          <Text className="font-body text-orange-500 text-sm">
-            Ampliar QRCode
-          </Text>
+          <Text className="font-body text-orange text-sm">Expand QRCode</Text>
         </TouchableOpacity>
       </View>
     </MotiView>
