@@ -12,7 +12,7 @@ import axios from "axios";
 
 import { colors } from "@/styles/colors";
 
-import { api } from "@/server/api";
+import { api } from "@/services/api";
 import { useBadgeStore } from "@/store/badge-store";
 
 import { Input } from "@/components/input";
@@ -70,11 +70,11 @@ export default function Register() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View className="flex-1 bg-green-400 items-center justify-center p-8">
-        <Image
+        {/* <Image
           source={require("@/assets/images/logo.png")}
           className="h-16"
           resizeMode="contain"
-        />
+        /> */}
         <View className="w-full mt-12 gap-3">
           <Input>
             <FontAwesome6
@@ -106,7 +106,7 @@ export default function Register() {
 
           <Link
             href="/"
-            className="text-zinc-100 text-base text-center font-bold mt-8"
+            className="text-white text-base text-center font-bold mt-8"
           >
             Já possui ingresso?
           </Link>

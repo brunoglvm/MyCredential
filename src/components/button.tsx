@@ -13,6 +13,25 @@ type Props = TouchableOpacityProps & {
   isLoading?: boolean;
 };
 
+export function Button({ title, isLoading = false, ...rest }: Props) {
+  return (
+    <TouchableOpacity
+      activeOpacity={0.8}
+      disabled={isLoading}
+      style={buttonStyle.button}
+      {...rest}
+    >
+      {isLoading ? (
+        <ActivityIndicator className="text-green-500" />
+      ) : (
+        <Text className="text-green-500 text-base font-bold uppercase">
+          {title}
+        </Text>
+      )}
+    </TouchableOpacity>
+  );
+}
+
 const buttonStyle = StyleSheet.create({
   button: {
     width: "100%",
@@ -23,22 +42,3 @@ const buttonStyle = StyleSheet.create({
     borderRadius: 8,
   },
 });
-
-export function Button({ title, isLoading = false, ...rest }: Props) {
-  return (
-    <TouchableOpacity
-      activeOpacity={0.8}
-      disabled={isLoading}
-      style={buttonStyle.button}
-      {...rest}
-    >
-      {isLoading ? (
-        <ActivityIndicator className="text-black" />
-      ) : (
-        <Text className="text-black text-base font-bold uppercase">
-          {title}
-        </Text>
-      )}
-    </TouchableOpacity>
-  );
-}

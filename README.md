@@ -1,25 +1,31 @@
-![Preview](./.github/preview.jpg)
-
 # MyCredential
 
-Mobile application built with React Native Expo Go and utilizes Prisma for efficient database management.
+Mobile application that allows users to register for events, access their credentials, and use a QR code for check-in on the event day.
 
 ## Techs
 
 - React Native (Expo)
 - TypeScript
 - NativeWind
-- Figma
-- Node.js (w/ Fastify)
+- Axios
+- Node.js (Fastify)
 - Prisma
+- SQLite
 
 ## Setup
 
-🖥️ **_Front-end_**
-
-Install all dependencies:
+Clone this repository:
 
 ```
+git clone <repository-URL>
+```
+
+📱 **Mobile**
+
+Change to the directory and install all dependencies:
+
+```
+cd <directory-name>
 npm install
 ```
 
@@ -29,12 +35,12 @@ Start the Expo Go development server:
 npx expo start
 ```
 
-🛠️ **_Back-end_**
+🛠️ **Back-end**
 
-Change to the server directory, then install all dependencies:
+Change to the directory and install all dependencies:
 
 ```
-cd server
+cd api
 npm install
 ```
 

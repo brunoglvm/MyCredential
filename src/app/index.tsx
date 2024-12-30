@@ -9,7 +9,7 @@ import {
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Link, Redirect } from "expo-router";
 
-import { api } from "@/server/api";
+import { api } from "@/services/api";
 import { useBadgeStore } from "@/store/badge-store";
 
 import { colors } from "@/styles/colors";
@@ -49,11 +49,11 @@ export default function Home() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View className="flex-1 bg-green-400 items-center justify-center p-8">
-        <Image
+        {/* <Image
           source={require("@/assets/images/logo.png")}
           className="h-16"
           resizeMode="contain"
-        />
+        /> */}
         <View className="w-full mt-12 gap-3">
           <Input>
             <MaterialCommunityIcons
@@ -74,7 +74,7 @@ export default function Home() {
 
           <Link
             href="/register"
-            className="text-zinc-100 text-base text-center font-bold mt-8"
+            className="text-white text-base text-center font-bold mt-8"
           >
             Ainda não possui ingresso?
           </Link>

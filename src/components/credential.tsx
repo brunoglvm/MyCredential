@@ -22,24 +22,6 @@ type Props = {
   onExpandQRCode?: () => void;
 };
 
-const qrCodeStyle = StyleSheet.create({
-  qrCode: {
-    marginTop: 24,
-  },
-});
-
-const cameraIconStyle = StyleSheet.create({
-  cameraIcon: {
-    height: 144,
-    width: 144,
-    borderRadius: 9999,
-    marginTop: -96,
-    backgroundColor: "rgb(156, 163, 175)",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
-
 export function Credential({ data, onChangeAvatar, onExpandQRCode }: Props) {
   const { height } = useWindowDimensions();
 
@@ -79,10 +61,10 @@ export function Credential({ data, onChangeAvatar, onExpandQRCode }: Props) {
           className="px-6 py-8 h-40 items-center self-stretch border-b border-white/10 overflow-hidden"
         >
           <View className="w-full flex-row items-center justify-between">
-            <Text className="text-zinc-100 text-sm font-bold">
+            <Text className="text-gray-100 text-sm font-bold">
               {data.eventTitle}
             </Text>
-            <Text className="text-zinc-100 text-sm font-bold">#{data.id}</Text>
+            <Text className="text-gray-100 text-sm font-bold">#{data.id}</Text>
           </View>
 
           <View className="w-40 h-40 bg-black rounded-full" />
@@ -105,11 +87,11 @@ export function Credential({ data, onChangeAvatar, onExpandQRCode }: Props) {
           </TouchableOpacity>
         )}
 
-        <Text className="text-zinc-100 font-bold text-2xl mt-4">
+        <Text className="text-gray-100 font-bold text-2xl mt-4">
           {data.name}
         </Text>
 
-        <Text className="text-zinc-300 font-regular text-base mb-4">
+        <Text className="text-gray-200 font-regular text-base mb-4">
           {data.email}
         </Text>
 
@@ -126,3 +108,21 @@ export function Credential({ data, onChangeAvatar, onExpandQRCode }: Props) {
     </MotiView>
   );
 }
+
+const qrCodeStyle = StyleSheet.create({
+  qrCode: {
+    marginTop: 24,
+  },
+});
+
+const cameraIconStyle = StyleSheet.create({
+  cameraIcon: {
+    height: 144,
+    width: 144,
+    borderRadius: 9999,
+    marginTop: -96,
+    backgroundColor: colors.gray[200],
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});

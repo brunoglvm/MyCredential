@@ -98,16 +98,16 @@ export default function Ticket() {
           <FontAwesome
             name="angle-double-down"
             size={24}
-            color={colors.gray[300]}
+            color={colors.gray[200]}
             className="self-center my-6"
           />
         </MotiView>
 
-        <Text className="text-zinc-100 font-bold text-2xl mt-4">
+        <Text className="text-gray-100 font-bold text-2xl mt-4">
           Share Credential
         </Text>
 
-        <Text className="text-zinc-300 font-regular text-base mt-1 mb-6">
+        <Text className="text-gray-200 font-regular text-base mt-1 mb-6">
           Step up and show the world you're part of this!
         </Text>
 
@@ -118,7 +118,7 @@ export default function Ticket() {
           style={{ marginTop: 40 }}
           onPress={() => badgeStore.remove()}
         >
-          <Text className="text-zinc-100 text-base font-bold text-center">
+          <Text className="text-white text-base font-bold text-center">
             Remove Ticket
           </Text>
         </TouchableOpacity>

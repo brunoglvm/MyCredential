@@ -1,9 +1,9 @@
 export const colors = {
-  white: "#E1E1E6",
+  white: "#FFFFFF",
 
   gray: {
-    200: "#B8B8B8",
-    300: "#A3A3A3",
+    100: "#F4F4F5",
+    200: "#CECECE",
   },
 
   green: {
@@ -14,6 +14,4 @@ export const colors = {
   },
 
   orange: "#F0863A",
-
-  black: "#131312",
 };
