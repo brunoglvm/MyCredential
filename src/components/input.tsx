@@ -1,10 +1,14 @@
-import { ReactNode } from "react";
-import { TextInput, View, TextInputProps } from "react-native";
+import React from "react";
+import { TextInput, View, TextInputProps, Platform } from "react-native";
 import { colors } from "@/styles/colors";
 
-function Input({ children }: { children: ReactNode }) {
+function Input({ children }: { children: React.ReactNode }) {
+  const paddingVertical = Platform.OS === "ios" ? "py-[18px]" : "py-[6px]";
+
   return (
-    <View className="w-full min-h-14 flex-row items-center gap-3 p-3 border border-gray rounded-lg">
+    <View
+      className={`w-full flex-row items-center gap-2 px-3 ${paddingVertical} border border-gray-100 rounded-lg`}
+    >
       {children}
     </View>
   );
@@ -13,7 +17,7 @@ function Input({ children }: { children: ReactNode }) {
 function Field({ ...rest }: TextInputProps) {
   return (
     <TextInput
-      className="flex-1 text-gray-100 text-base font-regular"
+      className="flex-1 text-gray-100 font-regular"
       placeholderTextColor={colors.gray[200]}
       {...rest}
     />

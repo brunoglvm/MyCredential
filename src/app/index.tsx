@@ -27,7 +27,7 @@ export default function Home() {
   async function handleAccessCredential() {
     try {
       if (!code.trim()) {
-        return Alert.alert("Ingresso", "Informe o código do ingresso!");
+        return Alert.alert("Ticket", "Please enter the ticket code!");
       }
 
       setIsLoading(true);
@@ -38,7 +38,7 @@ export default function Home() {
       console.log(error);
       setIsLoading(false);
 
-      Alert.alert("Ingresso", "Ingresso não encontrado!");
+      Alert.alert("Ticket", "Ticket not found!");
     }
   }
 
@@ -61,13 +61,10 @@ export default function Home() {
               color={colors.green[200]}
               size={20}
             />
-            <Input.Field
-              placeholder="Código de ingresso"
-              onChangeText={setCode}
-            />
+            <Input.Field placeholder="Ticket code" onChangeText={setCode} />
           </Input>
           <Button
-            title="Acessar credencial"
+            title="Access credential"
             onPress={handleAccessCredential}
             isLoading={isLoading}
           />
@@ -76,7 +73,7 @@ export default function Home() {
             href="/register"
             className="text-white text-base text-center font-bold mt-8"
           >
-            Ainda não possui ingresso?
+            Don't have a ticket yet?
           </Link>
         </View>
       </View>

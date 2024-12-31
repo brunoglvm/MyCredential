@@ -30,7 +30,7 @@ export default function Register() {
   async function handleRegister() {
     try {
       if (!name.trim() || !email.trim()) {
-        return Alert.alert("Inscrição", "Preencha todos os campos!");
+        return Alert.alert("Registration", "Please fill in all fields!");
       }
 
       setIsLoading(true);
@@ -47,7 +47,7 @@ export default function Register() {
 
         badgeStore.save(badgeResponse.data.badge);
 
-        Alert.alert("Inscrição", "Inscrição realizada com sucesso!", [
+        Alert.alert("Registration", "Registration successful!", [
           { text: "OK", onPress: () => router.push("/ticket") },
         ]);
       }
@@ -59,11 +59,14 @@ export default function Register() {
         if (
           String(error.response?.data.message).includes("already registered")
         ) {
-          return Alert.alert("Inscrição", "Este e-mail já está cadastrado!");
+          return Alert.alert(
+            "Registration",
+            "This email is already registered!"
+          );
         }
       }
 
-      Alert.alert("Inscrição", "Não foi possível fazer a inscrição");
+      Alert.alert("Registration", "Could not complete the registration");
     }
   }
 
@@ -82,7 +85,7 @@ export default function Register() {
               color={colors.green[200]}
               size={20}
             />
-            <Input.Field placeholder="Nome completo" onChangeText={setName} />
+            <Input.Field placeholder="Full name" onChangeText={setName} />
           </Input>
 
           <Input>
@@ -92,14 +95,14 @@ export default function Register() {
               size={20}
             />
             <Input.Field
-              placeholder="E-mail"
+              placeholder="Email"
               keyboardType="email-address"
               onChangeText={setEmail}
             />
           </Input>
 
           <Button
-            title="Realizar inscrição"
+            title="Register"
             onPress={handleRegister}
             isLoading={isLoading}
           />
@@ -108,7 +111,7 @@ export default function Register() {
             href="/"
             className="text-white text-base text-center font-bold mt-8"
           >
-            Já possui ingresso?
+            Already have a ticket?
           </Link>
         </View>
       </View>
