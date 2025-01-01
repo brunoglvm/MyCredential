@@ -4,25 +4,25 @@ import {
   Image,
   useWindowDimensions,
   ImageBackground,
-  StyleSheet,
+  ViewStyle,
   TouchableOpacity,
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { MotiView } from "moti";
 
+import { BadgeStore } from "@/store/badge-store";
+
 import { colors } from "@/styles/colors";
 
 import { QRCode } from "@/components/qrcode";
-import { BadgeStore } from "@/store/badge-store";
 
 type Props = {
   data: BadgeStore;
   image?: string;
   onChangeAvatar?: () => void;
-  onExpandQRCode?: () => void;
 };
 
-export function Credential({ data, onChangeAvatar, onExpandQRCode }: Props) {
+export function Credential({ data, onChangeAvatar }: Props) {
   const { height } = useWindowDimensions();
 
   return (
@@ -51,13 +51,13 @@ export function Credential({ data, onChangeAvatar, onExpandQRCode }: Props) {
       }}
     >
       <Image
-        source={require("@/assets/ticket/band.png")}
+        source={require("@/assets/images/ticket/band.png")}
         className="w-24 h-48 z-10"
       />
 
-      <View className="bg-black/20 self-stretch items-center pb-6 border border-white/10 mx-3 rounded-2xl -mt-5">
+      <View className="bg-black/20 self-stretch items-center pb-12 border border-white/10 mx-3 -mt-6 rounded-2xl">
         <ImageBackground
-          source={require("@/assets/ticket/header.png")}
+          source={require("@/assets/images/ticket/header.png")}
           className="px-6 py-8 h-40 items-center self-stretch border-b border-white/10 overflow-hidden"
         >
           <View className="w-full flex-row items-center justify-between">
@@ -66,21 +66,16 @@ export function Credential({ data, onChangeAvatar, onExpandQRCode }: Props) {
             </Text>
             <Text className="text-gray-100 text-sm font-bold">#{data.id}</Text>
           </View>
-
-          <View className="w-40 h-40 bg-black rounded-full" />
         </ImageBackground>
 
         {data.image ? (
           <TouchableOpacity activeOpacity={0.9} onPress={onChangeAvatar}>
-            <Image
-              source={{ uri: data.image }}
-              className="h-36 w-36 rounded-full -mt-24"
-            />
+            <Image source={{ uri: data.image }} style={userPhotoStyle} />
           </TouchableOpacity>
         ) : (
           <TouchableOpacity
             activeOpacity={0.9}
-            style={cameraIconStyle.cameraIcon}
+            style={cameraIconStyle}
             onPress={onChangeAvatar}
           >
             <Feather name="camera" color={colors.green[400]} size={32} />
@@ -96,33 +91,21 @@ export function Credential({ data, onChangeAvatar, onExpandQRCode }: Props) {
         </Text>
 
         <QRCode value={data.checkInURL} size={120} />
-
-        <TouchableOpacity
-          activeOpacity={0.8}
-          style={qrCodeStyle.qrCode}
-          onPress={onExpandQRCode}
-        >
-          <Text className="font-body text-orange text-sm">Expand QRCode</Text>
-        </TouchableOpacity>
       </View>
     </MotiView>
   );
 }
 
-const qrCodeStyle = StyleSheet.create({
-  qrCode: {
-    marginTop: 24,
-  },
-});
+const userPhotoStyle = {
+  width: 128,
+  height: 128,
+  borderRadius: 64,
+  marginTop: -96,
+};
 
-const cameraIconStyle = StyleSheet.create({
-  cameraIcon: {
-    height: 144,
-    width: 144,
-    borderRadius: 9999,
-    marginTop: -96,
-    backgroundColor: colors.gray[200],
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+const cameraIconStyle: ViewStyle = {
+  ...userPhotoStyle,
+  backgroundColor: colors.gray[200],
+  alignItems: "center",
+  justifyContent: "center",
+};

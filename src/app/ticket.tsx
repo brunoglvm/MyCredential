@@ -1,9 +1,7 @@
-import { useState } from "react";
 import {
   Text,
   View,
   Alert,
-  Modal,
   Share,
   ScrollView,
   TouchableOpacity,
@@ -20,12 +18,9 @@ import { colors } from "@/styles/colors";
 
 import { Header } from "@/components/header";
 import { Button } from "@/components/button";
-import { QRCode } from "@/components/qrcode";
 import { Credential } from "@/components/credential";
 
 export default function Ticket() {
-  const [expandQRCode, setExpandQRCode] = useState(false);
-
   const badgeStore = useBadgeStore();
 
   async function handleShare() {
@@ -77,11 +72,7 @@ export default function Ticket() {
           paddingBottom: 32,
         }}
       >
-        <Credential
-          data={badgeStore.data}
-          onChangeAvatar={handleSelectImage}
-          onExpandQRCode={() => setExpandQRCode(true)}
-        />
+        <Credential data={badgeStore.data} onChangeAvatar={handleSelectImage} />
 
         <MotiView
           from={{
@@ -123,19 +114,6 @@ export default function Ticket() {
           </Text>
         </TouchableOpacity>
       </ScrollView>
-      <Modal visible={expandQRCode} statusBarTranslucent animationType="fade">
-        <View className="flex-1 bg-green-400 items-center justify-center">
-          <TouchableOpacity
-            activeOpacity={0.9}
-            onPress={() => setExpandQRCode(false)}
-          >
-            <QRCode value="test" size={250} />
-            <Text className="font-body text-orange text-sm mt-10 text-center">
-              Close QRCode
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </Modal>
     </View>
   );
 }

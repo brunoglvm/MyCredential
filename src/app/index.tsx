@@ -1,17 +1,13 @@
 import { useState } from "react";
-import {
-  View,
-  Image,
-  TouchableWithoutFeedback,
-  Keyboard,
-  Alert,
-} from "react-native";
+import { View, TouchableWithoutFeedback, Keyboard, Alert } from "react-native";
+
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Link, Redirect } from "expo-router";
 
 import { api } from "@/services/api";
 import { useBadgeStore } from "@/store/badge-store";
 
+import Logo from "@/assets/images/logo.svg";
 import { colors } from "@/styles/colors";
 
 import { Input } from "@/components/input";
@@ -49,11 +45,8 @@ export default function Home() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View className="flex-1 bg-green-400 items-center justify-center p-8">
-        {/* <Image
-          source={require("@/assets/images/logo.png")}
-          className="h-16"
-          resizeMode="contain"
-        /> */}
+        <Logo width={212} height={38} />
+
         <View className="w-full mt-12 gap-3">
           <Input>
             <MaterialCommunityIcons

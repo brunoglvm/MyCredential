@@ -4,13 +4,14 @@
     "slug": "mobile",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/images/icon.png",
+    "icon": "./src/assets/app-icon/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
-      "image": "./src/assets/images/splash.png",
-      "resizeMode": "cover"
+      "image": "./src/assets/app-splash/splash-screen.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#295341"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
@@ -18,14 +19,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/assets/images/adaptive-icon.png",
-        "backgroundColor": "#F48F56"
+        "foregroundImage": "./src/assets/app-icon/adaptive-icon.png",
+        "backgroundColor": "#295341"
       }
+    },
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#295341"
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./src/assets/app-icon/favicon.png"
     },
     "plugins": ["expo-router", "expo-font"],
     "experiments": {
